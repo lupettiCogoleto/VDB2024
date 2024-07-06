@@ -13,10 +13,6 @@ function togglePasswordVisibility() {
     }
 }
 
-if (injectedDiv) {
-    injectedDiv.remove();
-}
-
 document.addEventListener('DOMContentLoaded', () => {
     const loginForm = document.getElementById('login-form');
     const loginDiv = document.getElementById('login');
