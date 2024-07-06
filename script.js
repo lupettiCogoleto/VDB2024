@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     console.log(window.location.pathname);
     
-    if (!window.location.pathname.includes('home-image.html')) {
+    if (window.location.pathname.includes('')) {
 
     // Function to fetch and validate users
         loginForm.addEventListener('submit', async (e) => {
