@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     console.log(window.location.pathname);
     
-    if (window.location.pathname.includes('/')) {
+    if (window.location.pathname.includes('/VDB2024/')) {
 
     // Function to fetch and validate users
         loginForm.addEventListener('submit', async (e) => {
