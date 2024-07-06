@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const passwordInput = document.getElementById('password');
     const usernameInput = document.getElementById('username');
     
-    if (window.location.pathname.includes('index.html')) {
+    if (window.location.pathname.includes('/')) {
 
     // Function to fetch and validate users
         loginForm.addEventListener('submit', async (e) => {
