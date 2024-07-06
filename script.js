@@ -20,7 +20,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const usernameInput = document.getElementById('username');
     
     // Function to fetch and validate users
-    async function fetchAndValidateUsers(username, password) {
+    loginForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+
         try {
             const response = await fetch('users.json');
             const users = await response.json();
@@ -34,6 +38,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 localStorage.setItem('username', username);
                 window.location.href = 'home-image.html';
             } else {
+                const loginDiv = document.getElementById('login');
+                const passwordInput = document.getElementById('password');
+                const usernameInput = document.getElementById('username');
+
                 loginDiv.classList.add('shake');
                 setTimeout(() => {
                     loginDiv.classList.remove('shake');
@@ -52,16 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
             console.error('Error fetching users:', error);
             alert('An error occurred. Please try again.');
         }
-    }
-    if (window.location.pathname.includes('index.html')){
-        loginForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
-    
-            fetchAndValidateUsers(username, password);
-        });
-    }
+    });
     
     if (window.location.pathname.includes('home-image.html')) {
         const imagePath = `images/${localStorage.getItem('username')}.png`; // Example path to your images
