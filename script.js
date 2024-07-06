@@ -18,8 +18,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const loginDiv = document.getElementById('login');
     const passwordInput = document.getElementById('password');
     const usernameInput = document.getElementById('username');
-
-    console.log("sono qui");
     
     // Function to fetch and validate users
     async function fetchAndValidateUsers(username, password) {
@@ -32,6 +30,10 @@ document.addEventListener('DOMContentLoaded', () => {
             username = username.toLowerCase();
             const isValidUser = users.some(user => user.username === username && user.password === password);
 
+            console.log("sono qui");
+            console.log(users);
+            console.log(username);
+            
             if (isValidUser) {
                 localStorage.setItem('username', username);
                 window.location.href = 'home-image.html';
