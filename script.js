@@ -21,8 +21,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     console.log(window.location.pathname);
     
-    if (window.location.pathname.includes('')) {
 
+    if (document.getElementById('login-form') !== null) {
     // Function to fetch and validate users
         loginForm.addEventListener('submit', async (e) => {
             e.preventDefault();
