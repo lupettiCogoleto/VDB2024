@@ -13,7 +13,6 @@ function togglePasswordVisibility() {
     }
 }
 
-const injectedDiv = document.querySelector('div[style*="z-index:9999999;bottom: 0;width: auto;right: 1%;"]');
 if (injectedDiv) {
     injectedDiv.remove();
 }
@@ -23,11 +22,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const loginDiv = document.getElementById('login');
     const passwordInput = document.getElementById('password');
     const usernameInput = document.getElementById('username');
-    
-    const injectedDiv = document.querySelector('div[style*="z-index:9999999;bottom: 0;width: auto;right: 1%;"]');
-    if (injectedDiv) {
-        injectedDiv.remove();
-    }
     
     // Function to fetch and validate users
     async function fetchAndValidateUsers(username, password) {
@@ -41,7 +35,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const isValidUser = users.some(user => user.username === username && user.password === password);
 
             if (isValidUser) {
-                localStorage.setItem('loggedIn', 'true');
                 localStorage.setItem('username', username);
                 window.location.href = 'home-image.html';
             } else {
