@@ -23,7 +23,6 @@ document.addEventListener('DOMContentLoaded', () => {
     
 
     if (document.getElementById('login-form') !== null) {
-    // Function to fetch and validate users
         loginForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             var username = document.getElementById('username').value;
@@ -33,8 +32,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 const response = await fetch('users.json');
                 const users = await response.json();
 
-                // Check if the entered username and password match any user in the JSON file
-                // Make username not case sensitive
                 username = username.toLowerCase();
                 const isValidUser = users.some(user => user.username === username && user.password === password);
 
@@ -68,20 +65,19 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     if (window.location.pathname.includes('home-image.html')) {
-        const imagePath = `images/${localStorage.getItem('username')}.png`; // Example path to your images
+        const imagePath = `images/${localStorage.getItem('username')}.png`; 
         localStorage.setItem('username', "");
 
         setImage(imagePath);
     }
-
+    
     function setImage(imagePath) {
         const imageContainer = document.getElementById('imageContainer');
         const img = document.createElement('img');
         
         img.src = imagePath;
-        img.alt = 'User Image'; // Optional: Set alt attribute for accessibility
+        img.alt = 'User Image'; 
 
-        // Clear previous content (if any) and append new image
         imageContainer.innerHTML = '';
         imageContainer.appendChild(img);
     }
