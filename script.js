@@ -30,10 +30,6 @@ document.addEventListener('DOMContentLoaded', () => {
             username = username.toLowerCase();
             const isValidUser = users.some(user => user.username === username && user.password === password);
 
-            console.log("sono qui");
-            console.log(users);
-            console.log(username);
-            
             if (isValidUser) {
                 localStorage.setItem('username', username);
                 window.location.href = 'home-image.html';
