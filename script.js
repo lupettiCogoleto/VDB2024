@@ -18,6 +18,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const loginDiv = document.getElementById('login');
     const passwordInput = document.getElementById('password');
     const usernameInput = document.getElementById('username');
+
+    console.log("sono qui");
     
     // Function to fetch and validate users
     async function fetchAndValidateUsers(username, password) {
