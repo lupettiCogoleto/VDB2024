@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <style>
+    div[style*="z-index:9999999;bottom: 0;width: auto;right: 1%;"] {
+        display: none !important;
+    }
+    </style>
+    <title>VdB 2024</title>
+</head>
+<body>
+    <div id="login">
+        <h1>LOGIN</h1>
+        <form id="login-form" autocomplete="off">
+            <input type="text" name="username" id="username" autocomplete="off" spellcheck="false" placeholder="Username">
+            <div class="password-toggle">
+                <input type="password" name="password" id="password" autocomplete="off" spellcheck="false" placeholder="Password" required>
+                <i class="far fa-eye-slash toggle-password" onclick="togglePasswordVisibility()"></i>
+            </div>
+            <button type="submit">ACCEDI</button>
+        </form>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+</body>
+</html>
