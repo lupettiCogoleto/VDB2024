@@ -19,48 +19,51 @@ document.addEventListener('DOMContentLoaded', () => {
     const passwordInput = document.getElementById('password');
     const usernameInput = document.getElementById('username');
     
+    if (window.location.pathname.includes('index.html')) {
+
     // Function to fetch and validate users
-    loginForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        var username = document.getElementById('username').value;
-        const password = document.getElementById('password').value;
+        loginForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            var username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
 
-        try {
-            const response = await fetch('users.json');
-            const users = await response.json();
+            try {
+                const response = await fetch('users.json');
+                const users = await response.json();
 
-            // Check if the entered username and password match any user in the JSON file
-            // Make username not case sensitive
-            username = username.toLowerCase();
-            const isValidUser = users.some(user => user.username === username && user.password === password);
+                // Check if the entered username and password match any user in the JSON file
+                // Make username not case sensitive
+                username = username.toLowerCase();
+                const isValidUser = users.some(user => user.username === username && user.password === password);
 
-            if (isValidUser) {
-                localStorage.setItem('username', username);
-                window.location.href = 'home-image.html';
-            } else {
-                const loginDiv = document.getElementById('login');
-                const passwordInput = document.getElementById('password');
-                const usernameInput = document.getElementById('username');
+                if (isValidUser) {
+                    localStorage.setItem('username', username);
+                    window.location.href = 'home-image.html';
+                } else {
+                    const loginDiv = document.getElementById('login');
+                    const passwordInput = document.getElementById('password');
+                    const usernameInput = document.getElementById('username');
 
-                loginDiv.classList.add('shake');
-                setTimeout(() => {
-                    loginDiv.classList.remove('shake');
-                }, 300);
+                    loginDiv.classList.add('shake');
+                    setTimeout(() => {
+                        loginDiv.classList.remove('shake');
+                    }, 300);
 
-                passwordInput.classList.add('invalid');
-                usernameInput.classList.add('invalid');
-                setTimeout(() => {
-                    passwordInput.classList.remove('invalid');
-                    usernameInput.classList.remove('invalid');
-                }, 500);
+                    passwordInput.classList.add('invalid');
+                    usernameInput.classList.add('invalid');
+                    setTimeout(() => {
+                        passwordInput.classList.remove('invalid');
+                        usernameInput.classList.remove('invalid');
+                    }, 500);
 
-                passwordInput.value = '';
+                    passwordInput.value = '';
+                }
+            } catch (error) {
+                console.error('Error fetching users:', error);
+                alert('An error occurred. Please try again.');
             }
-        } catch (error) {
-            console.error('Error fetching users:', error);
-            alert('An error occurred. Please try again.');
-        }
-    });
+        });
+    }
     
     if (window.location.pathname.includes('home-image.html')) {
         const imagePath = `images/${localStorage.getItem('username')}.png`; // Example path to your images
