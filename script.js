@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
         img.onload = function() {
             imageContainer.innerHTML = '';
             imageContainer.appendChild(img);
-            img.style.display = 'block';
+            img.classList.add('fade-in');
         };
         
         img.src = imagePath;
