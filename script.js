@@ -26,13 +26,14 @@ document.addEventListener('DOMContentLoaded', () => {
         loginForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             var username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
+            var password = document.getElementById('password').value;
 
             try {
                 const response = await fetch('users.json');
                 const users = await response.json();
 
                 username = username.toLowerCase();
+                password = password.toLowerCase();
                 const isValidUser = users.some(user => user.username === username && user.password === password);
 
                 if (isValidUser) {
