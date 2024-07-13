@@ -115,6 +115,12 @@ input[type=text]:focus, input[type=password]:focus {
     height: auto; 
     display: none; 
     margin: 0 auto; 
+    transition: opacity 0.5s ease;
+}
+
+#imageContainer img.fade-in {
+    display: block; 
+    opacity: 1; 
 }
 
 html, body {
