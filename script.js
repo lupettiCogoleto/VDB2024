@@ -77,10 +77,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const img = new Image();
 
         img.onload = function() {
-            while (imageContainer.firstChild) {
-                imageContainer.removeChild(imageContainer.firstChild);
-            }
+            imageContainer.innerHTML = '';
             imageContainer.appendChild(img);
+            img.style.display = 'block';
         };
         
         img.src = imagePath;
