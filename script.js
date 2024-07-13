@@ -74,12 +74,16 @@ document.addEventListener('DOMContentLoaded', () => {
     
     function setImage(imagePath) {
         const imageContainer = document.getElementById('imageContainer');
-        const img = document.createElement('img');
+        const img = new Image();
+
+        img.onload = function() {
+            while (imageContainer.firstChild) {
+                imageContainer.removeChild(imageContainer.firstChild);
+            }
+            imageContainer.appendChild(img);
+        };
         
         img.src = imagePath;
         img.alt = 'User Image'; 
-
-        imageContainer.innerHTML = '';
-        imageContainer.appendChild(img);
     }
 });
